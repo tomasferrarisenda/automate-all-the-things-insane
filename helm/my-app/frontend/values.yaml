@@ -2,7 +2,7 @@ appName: maturro # This value was modified by the initial-setup python script
 
 service: frontend
 
-host: # This value was modified by the deploy-argocd pipeline
+host: ac66a6c22313e4344867781a89021abd-2071737569.us-east-1.elb.amazonaws.com # This value was modified by the deploy-argocd pipeline
 
 port: 80
 
