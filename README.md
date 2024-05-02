@@ -370,7 +370,7 @@ For the infrastructure, same as before. If the infrastrucure team needs to, for 
 ## Instructions
 
 1. On your GitHub repo, go to the "Actions" tab.
-2. Click on the "03-Build & deploy my-app-frontend image" workflow.
+2. Click on the "02-Build & deploy my-app-frontend image" workflow.
 3. Click on "Run workflow" (Use workflow from Branch: main).
 <!-- 4. When it's finished, you'll find three artifacts with the URLs for each environment's frontend in the workflow run screen under "Artifacts". Download them to see the URLs.
 5. If you go to the URLs too quickly you will get a "503 Service Temporarily Unavailable". We need to give ArgoCD a little time to notice the changes in the [/helm/my-app/frontend directory](helm/my-app/frontend). By default ArgoCD pulls for changes every three minutes. You can either wait like an adult or go into the ArgoCD web UI and hit "Refresh Apps" like the impatient child that you are.
@@ -405,18 +405,11 @@ Finally the pipeline will get the ArgoCD web UI URL and admin account password a
 
 ## Instructions
 
-1. Go to "Pipelines" under "Pipelines" on the left side menu.
-2. Click on "New pipeline".
-3. Select "GitHub".
-4. Select the repo, it should be "your-github-username/automate-all-the-things-insane"
-5. Select "Existing Azure Pipelines YAML file".
-6. Under "Branch" select "main" and under "Path" select "/azure-devops/03-deploy-argocd.yml". Click "Continue".
-7. If you DON'T have a hosted parallelism, you'll need to do the same thing as in point 10 from the [infrastructure deployment pipeline](#instructions).
-8. Click on "Run".
-9. When it's done, the endpoints and ArgoCD access files will be exported as artifacts. You'll find them in the pipeline run screen. Download them to see the ArgoCD URL and credentials, and the frontend endpoints.
-<p title="Guide" align="center"> <img width="700" src="https://i.imgur.com/UtZyCCe.png"> </p>
-
-10. You can now access the ArgoCD UI, if it's not ready just hit refresh every few seconds. Here you should find all the applications. Some may still be progressing, be patient.<br>
+1. On your GitHub repo, go to the "Actions" tab.
+2. Click on the "03-Deploy ArgoCD" workflow.
+3. Click on "Run workflow" (Use workflow from Branch: main).
+4. When it's finished, the access file will be exported as an artifact. You'll find it in the workflow run screen under "Artifacts". Download it to see the URL and credentials.
+5. You can now access the ArgoCD UI, if it's not ready just hit refresh every few seconds. Here you should find all the applications. Some may still be progressing, be patient.<br>
 Three applications will be under the "argocd" project, these are necessary for ArgoCD self-management.<br>
 Another three will be under the "observability" project, these are Prometheus, Loki and Grafana.<br>
 You will also see a few other applications related to our new service mesh implementation, they will be under the "service-mesh" project. We'll explore these later.<br>
